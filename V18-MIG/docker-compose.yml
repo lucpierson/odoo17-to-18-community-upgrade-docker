@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  odoo-18-AugmenteForUpgrade: #Configuration du container Odoo
+    image: odoo18-augmente-20250725-image:latest # Nom de notre image personnalisée
+    restart: "no"
+    container_name: odoo-18-AugmenteForUpgrade
+    user: root
+    ports:
+      - "8569:8069" # Le port 8069 est exposé pour accéder à l'application Odoo 
+      - "8571:8071" # Le port 8071 est exposé pour accéder à l'application Odoo 
+      - "8572:8072" # Le port 8072 est exposé pour accéder à l'application Odoo 
+    networks:
+      - moustyLocalNetwork # éseau dans lequel notre service communiquera
+    volumes:
+      - ./:/etc/odoo:z
+      - ./odoo-filestore:/var/lib/odoo/filestore:z
+      - ./custom:/mnt/extra-addons:z
+      - ./OpenUpgrade:/var/lib/odoo/OpenUpgrade
+      - ./logs:/var/log/odoo:z
+
+networks:
+    moustyLocalNetwork:
+        external: true
+

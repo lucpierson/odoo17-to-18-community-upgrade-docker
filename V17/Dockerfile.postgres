@@ -1,0 +1,9 @@
+# Utiliser l'image officielle PostgreSQL 15
+FROM postgres:15
+
+# Changer le port d'écoute dans la configuration PostgreSQL
+RUN sed -i 's/^#port = 5432/port = 5444/' /usr/share/postgresql/postgresql.conf.sample
+
+# Copier la configuration dans le répertoire de configuration PostgreSQL
+CMD ["postgres", "-c", "config_file=/usr/share/postgresql/postgresql.conf.sample"]
+

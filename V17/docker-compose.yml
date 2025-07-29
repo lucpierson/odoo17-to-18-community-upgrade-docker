@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  odoo-mylucdatabase: # Configuration du container Odoo
+    image: odoo17-20250725-image:latest # Nom de notre image personnalisée
+    container_name: odoo-20250207-mylucdatabase
+    restart: unless-stopped
+    user: root
+    depends_on: 
+      - postgres # L'exécution de notre service dépend de celui de postgres
+    ports:
+      - "8569:8069" # Le port 8069 est exposé pour accéder à l'application Odoo 
+    networks:
+      - moustyLocalNetwork 
+    volumes:
+      - ./:/etc/odoo:z
+      - ./odoo-filestore:/var/lib/odoo/filestore:z
+      - ./custom:/mnt/extra-addons:z
+      - ./logs:/var/log/odoo:z
+
+  postgres: # Configuration de notre service PostgreSQL
+    image: postgres15-5444-image:latest # Image postgres 15 de Docker hub
+    container_name: postgres-20250725-mylucdatabase
+    restart: unless-stopped 
+    networks:
+      - moustyLocalNetwork
+    environment: 
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data:z
+
+networks:
+  moustyLocalNetwork:
+        external: true
+

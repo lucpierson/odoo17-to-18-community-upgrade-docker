@@ -1,0 +1,1 @@
+docker build -t odoo18-augmente-20250725-image .
