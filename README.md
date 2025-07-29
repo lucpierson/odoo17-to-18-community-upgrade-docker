@@ -1,4 +1,4 @@
-# odoo17-to-18-community-upgrade-docker
+# odoo community V17 upgrade to V18 using docker envs
 July 28th 2025
 
 I couldn't find clear explanations and I don't have a devl odoo env.
