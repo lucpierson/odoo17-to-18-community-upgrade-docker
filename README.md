@@ -35,8 +35,8 @@ This is a description of the actions I did to upgrade a odoo community v17 to v1
    
     d) update your odoo.conf with references to the running postgresql
    
-      - you need to reference your V17 postgresql running docker and the db_name to migrate
-      - you need to add variables
+       - you need to reference your V17 postgresql running docker and the db_name to migrate
+       - you need to add variables
         
     e) download the OCA OpenUpgrade Scripts
    
