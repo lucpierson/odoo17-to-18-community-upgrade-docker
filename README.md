@@ -5,10 +5,13 @@ I couldn't find clear explanations and I don't have a devl odoo env.
 This is a description of the actions I did to upgrade a odoo community v17 to v18 with standard docker containers
 
 0) to avoid any module problem, remove the custom V17 installations:
+   
     - in the odoo env, go to apps, look for all modules installed and remove the custom ones. You may find the list in your ./custom (the folder which links to /mnt/extra-addons in your docker-compose)
 
 2) upgrade your current env to last V17 version (see in V17 folder):
+   
     - with provided latest V17 Dokerfile, entrypoint.sh and wait-for-psql.py, create new image, run existing V17 on a docker from that new image
+      
         * see in V17 folder the build command and docker-compose.yml odoo.conf related
         * remember on which docker runs your pstgres (in my case postgres-20250725-mylucdatabase)
        
@@ -25,7 +28,7 @@ This is a description of the actions I did to upgrade a odoo community v17 to v1
    
        - you need to add the migration instruction (see at the end) 
    
-    c) created or update you V18-MIG docker-compose.yml
+    c) create or update you V18-MIG docker-compose.yml
    
        - you need to run once only (==> no restart)
        - you need to add reference to the local ./OpenUpgrade
