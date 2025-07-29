@@ -52,9 +52,9 @@ This is a description of the actions I did to upgrade a odoo community v17 to v1
 6) Create a V18 env based on V18 (see in V18 folder):
    
    - Get the latest V18 Dokerfile, entrypoint.sh and wait-for-psql.py
-   - copy the odoo-filestore content to the new V18 folder
    - Build your docker image
-   - Create your docker-compose.yml with only the odoo service (postgres already running) 
+   - Create your docker-compose.yml with only the odoo service (postgres already running)
+   - copy (cp -r)  the odoo-filestore of V17 folder to the new V18 folder
    - run the new V18 docker (docker-compose up -d)
    - monitor the logs (tail -f ./logs/odoo.log)
 
