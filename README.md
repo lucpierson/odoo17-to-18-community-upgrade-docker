@@ -62,4 +62,7 @@ links :
    odoo Docker images : https://hub.docker.com/_/odoo
    OCA Openupgrade : https://github.com/OCA/OpenUpgrade/tree/18.0
 
+
+Please note that for the migration purpose, I run postgres on 5444 port and expose odoo on 8569 (you may keep you 5432/8069 usual ports) 
+
 This is provided as indication only, HTH, best, Luc
