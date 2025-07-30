@@ -66,3 +66,5 @@ links :
 Please note that for the migration purpose, I run postgres on 5444 port and expose odoo on 8569 (you may keep you 5432/8069 usual ports) 
 
 This is provided as indication only, HTH, best, Luc
+
+Special Thanks to Odoo Tech (yt channel : https://www.youtube.com/@Odoo_tech_akash)
